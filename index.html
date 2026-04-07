@@ -11,7 +11,7 @@
     <script>
         function carregarProdutos() {
             const xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://fakestoreapi.com/products?limit=3", true);
+            xhr.open("GET", "https://api.empresa.com/produtos", true); //URL ficticio
 
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4) {
