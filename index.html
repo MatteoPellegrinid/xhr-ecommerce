@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo XHR</title>
+</head>
+<body>
+    <button onclick="carregarProdutos()">Carregar Produtos</button>
+    <div id="resultado"></div>
+
+    <script>
+        function carregarProdutos() {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://fakestoreapi.com/products?limit=3", true);
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById("resultado").innerHTML = xhr.responseText;
+                    } else {
+                        document.getElementById("resultado").innerHTML = "Erro ao carregar produtos.";
+                    }
+                }
+            };
+
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
